@@ -10,7 +10,11 @@ namespace KeysShop.Core
             : base(options)
         {
         }
-
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Seed();
+            base.OnModelCreating(builder);
+        }
         public DbSet<Key> Keys { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
