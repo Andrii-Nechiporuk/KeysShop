@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace KeysShop.Core.Migrations
 {
-    public partial class tets : Migration
+    public partial class test : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -272,10 +272,10 @@ namespace KeysShop.Core.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "044d792a-e328-4cf1-b9fe-2bbfa543e5bc", "02840b61-71ad-4afc-8657-ce008f5a3237", "Admin", "ADMIN" },
-                    { "2d3b2578-30a8-46dd-a34d-35ddf6e0d10b", "95815039-cf62-4c93-bc2e-57cf788b7195", "Consultant", "CONSULTANT" },
-                    { "98535365-10b7-4694-a061-763ddd04efbb", "4405a6f1-716d-4d5a-8c4c-7fe2aa3eabb1", "Manager", "MANAGER" },
-                    { "e151dffa-bc23-4655-9779-b9f63396bef2", "47457cb3-b32b-4ff6-b18b-f262d2502f45", "Customer", "CUSTOMER" }
+                    { "0e59ab81-4004-4e5d-bec0-ed0fe81aebe4", "6ae2ef41-b0b4-489e-80b2-23e81e2ef19b", "Consultant", "CONSULTANT" },
+                    { "3a9aa68e-b537-406e-80c9-8936a961d6bb", "69cc08bc-0d8b-44a3-abcf-0b967be526c4", "Manager", "MANAGER" },
+                    { "73e09f44-d822-4ac9-97de-726ffb029c68", "e580b0ca-fd56-4368-9cfd-b3b8dbf94744", "Admin", "ADMIN" },
+                    { "885fa09f-f738-484f-a27c-8b2355379e1f", "f5f9b588-6b3f-484c-a46c-32a0944e8415", "Customer", "CUSTOMER" }
                 });
 
             migrationBuilder.InsertData(
@@ -283,10 +283,10 @@ namespace KeysShop.Core.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "15901d36-fe31-43bf-986b-c236fef7cc8c", 0, "02c7c82e-6db3-41fc-8b94-16dd0ab91810", "admin@keysshop.com", true, null, null, false, null, "ADMIN@KEYSSHOP.COM", "ADMIN@KEYSSHOP.COM", "AQAAAAEAACcQAAAAEEx/ktCe/JyzK+M0RLSGQTBtabSLKO7aVSsYDWhMNOPppNfm0xP/OANg/lpuy9APkA==", null, false, "455c56fd-8f2f-4c9d-bb7d-53f0a77d1bbd", false, "admin@keysshop.com" },
-                    { "480ff800-602c-4099-a76f-efd2fb2afcf5", 0, "72152606-7a82-48e2-8e7a-4a40e9c8d44b", "consultant@keysshop.com", true, null, null, false, null, "CONSULTANT@KEYSSHOP.COM", "CONSULTANT@KEYSSHOP.COM", "AQAAAAEAACcQAAAAENjpWGaz0sxJbqaI2/AlFB8qs0CL4B9sMI9071KevJpwTC+egQdWm5POFWaS2Cp/+A==", null, false, "9d853d21-4a69-4814-a1f5-adcdaba6daff", false, "consultant@keysshop.com" },
-                    { "655a950f-45a4-412a-94d0-0bb28abc474c", 0, "ec5d21f9-946e-4475-a119-ea1cf6a9110e", "customer@keysshop.com", true, null, null, false, null, "CUSTOMER@KEYSSHOP.COM", "CUSTOMER@KEYSSHOP.COM", "AQAAAAEAACcQAAAAEMfiZ1adZlCaferMTgP+IloHrDF9Dj1jIYII+zCawJojKbRGyxJ1jOxEejqX90y2kQ==", null, false, "10438e10-c7b7-4ab9-8d3b-e89e05312d21", false, "customer@keysshop.com" },
-                    { "a87827f0-f8b7-4626-b4b0-5c5b4db168f5", 0, "9b508147-e5e9-4d91-bc3a-1b501177baef", "manager@keysshop.com", true, null, null, false, null, "MANAGER@KEYSSHOP.COM", "MANAGER@KEYSSHOP.COM", "AQAAAAEAACcQAAAAEJOGkTG4l/erLmvlSgup4PtIMnodoNFJRkjLTxGINUcKlmzR/pjdk+MmPhUA2ml3+Q==", null, false, "79af82d9-6960-4196-9ec6-8b9a9ded6113", false, "manager@keysshop.com" }
+                    { "0f7899e2-bdb1-4543-926b-f19d9f23002c", 0, "7a8d88db-e95d-48e9-a6b9-c5934e3c5440", "admin@keysshop.com", true, null, null, false, null, "ADMIN@KEYSSHOP.COM", "ADMIN@KEYSSHOP.COM", "AQAAAAEAACcQAAAAEA1lVe8mQ+wcNc64Uh98eAW7tA8Wn/25h3iXOHbMkoudsg9y91vNPcGRO0wTV/V25g==", null, false, "9878867e-bbb0-4f78-b713-e28713f29829", false, "admin@keysshop.com" },
+                    { "2bb907fb-5b17-4e7b-b643-0199081247d7", 0, "7056e248-c6a2-4428-8208-6b59749af72c", "manager@keysshop.com", true, null, null, false, null, "MANAGER@KEYSSHOP.COM", "MANAGER@KEYSSHOP.COM", "AQAAAAEAACcQAAAAEOGFz5Qk8vFR1X4W6drAj7jgNZX/LcFXDeu7xSmJusGIrBfIxA3STJwDyve3ViWDjA==", null, false, "5890933f-1f04-43fc-884a-6d46106ea683", false, "manager@keysshop.com" },
+                    { "5453432f-3a49-4c1b-9acc-a6f7ba717da8", 0, "e0078c85-486c-4cec-b559-47106115727f", "consultant@keysshop.com", true, null, null, false, null, "CONSULTANT@KEYSSHOP.COM", "CONSULTANT@KEYSSHOP.COM", "AQAAAAEAACcQAAAAEFOP7CVT2GuDFJu7GnIdVBdeJIgwheYnBaKphLVDKKLmqor3yogIJAlSVsQyqli/5A==", null, false, "aa2b45fb-5b20-41fb-803a-868c70860448", false, "consultant@keysshop.com" },
+                    { "7a7a6b02-ff36-44e7-8c51-8730a0468f18", 0, "05ba057b-32ca-4cc4-907f-31463c454cb1", "customer@keysshop.com", true, null, null, false, null, "CUSTOMER@KEYSSHOP.COM", "CUSTOMER@KEYSSHOP.COM", "AQAAAAEAACcQAAAAELGWjV4lZrXv3xByuBQm1EFqyHvDZw0DSJtdeABAuXDcBYb04f5g7bAZDjlvBlksaQ==", null, false, "8b175bbf-d7d8-41a0-9936-0d637fdeebfb", false, "customer@keysshop.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -294,15 +294,15 @@ namespace KeysShop.Core.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "044d792a-e328-4cf1-b9fe-2bbfa543e5bc", "15901d36-fe31-43bf-986b-c236fef7cc8c" },
-                    { "2d3b2578-30a8-46dd-a34d-35ddf6e0d10b", "15901d36-fe31-43bf-986b-c236fef7cc8c" },
-                    { "98535365-10b7-4694-a061-763ddd04efbb", "15901d36-fe31-43bf-986b-c236fef7cc8c" },
-                    { "e151dffa-bc23-4655-9779-b9f63396bef2", "15901d36-fe31-43bf-986b-c236fef7cc8c" },
-                    { "2d3b2578-30a8-46dd-a34d-35ddf6e0d10b", "480ff800-602c-4099-a76f-efd2fb2afcf5" },
-                    { "e151dffa-bc23-4655-9779-b9f63396bef2", "480ff800-602c-4099-a76f-efd2fb2afcf5" },
-                    { "e151dffa-bc23-4655-9779-b9f63396bef2", "655a950f-45a4-412a-94d0-0bb28abc474c" },
-                    { "98535365-10b7-4694-a061-763ddd04efbb", "a87827f0-f8b7-4626-b4b0-5c5b4db168f5" },
-                    { "e151dffa-bc23-4655-9779-b9f63396bef2", "a87827f0-f8b7-4626-b4b0-5c5b4db168f5" }
+                    { "0e59ab81-4004-4e5d-bec0-ed0fe81aebe4", "0f7899e2-bdb1-4543-926b-f19d9f23002c" },
+                    { "3a9aa68e-b537-406e-80c9-8936a961d6bb", "0f7899e2-bdb1-4543-926b-f19d9f23002c" },
+                    { "73e09f44-d822-4ac9-97de-726ffb029c68", "0f7899e2-bdb1-4543-926b-f19d9f23002c" },
+                    { "885fa09f-f738-484f-a27c-8b2355379e1f", "0f7899e2-bdb1-4543-926b-f19d9f23002c" },
+                    { "3a9aa68e-b537-406e-80c9-8936a961d6bb", "2bb907fb-5b17-4e7b-b643-0199081247d7" },
+                    { "885fa09f-f738-484f-a27c-8b2355379e1f", "2bb907fb-5b17-4e7b-b643-0199081247d7" },
+                    { "0e59ab81-4004-4e5d-bec0-ed0fe81aebe4", "5453432f-3a49-4c1b-9acc-a6f7ba717da8" },
+                    { "885fa09f-f738-484f-a27c-8b2355379e1f", "5453432f-3a49-4c1b-9acc-a6f7ba717da8" },
+                    { "885fa09f-f738-484f-a27c-8b2355379e1f", "7a7a6b02-ff36-44e7-8c51-8730a0468f18" }
                 });
 
             migrationBuilder.CreateIndex(

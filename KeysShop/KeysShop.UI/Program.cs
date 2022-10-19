@@ -1,18 +1,39 @@
 using KeysShop.Core;
+using KeysShop.Repository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
+using KeysShop.Core;
+using KeysShop.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("KeysShopConnection");
-builder.Services.AddDbContext<KeysShopContext>(options =>
-    options.UseSqlServer(connectionString));
+
+builder.Services.AddDbContext<KeysShopContext>(options => options.UseSqlServer(connectionString));
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
-    .AddEntityFrameworkStores<KeysShopContext>();
+builder.Services.AddDefaultIdentity<User>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = false;
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequiredLength = 5;
+}).AddRoles<IdentityRole>()
+.AddEntityFrameworkStores<KeysShopContext>();
+
+builder.Services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+
 builder.Services.AddControllersWithViews();
+/*builder.Services.AddTransient<UpdateRepository>();
+builder.Services.AddTransient<LossesRepository>();
+builder.Services.AddTransient<EqRepository>();*/
+builder.Services.AddTransient<UsersRepository>();
 
 var app = builder.Build();
 

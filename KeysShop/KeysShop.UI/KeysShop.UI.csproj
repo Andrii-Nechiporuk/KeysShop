@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\KeysShop.Core\KeysShop.Core.csproj" />
+    <ProjectReference Include="..\KeysShop.Repository\KeysShop.Repository.csproj" />
   </ItemGroup>
 
 </Project>
