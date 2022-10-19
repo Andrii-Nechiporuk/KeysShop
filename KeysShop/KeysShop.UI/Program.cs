@@ -35,6 +35,11 @@ builder.Services.AddTransient<LossesRepository>();
 builder.Services.AddTransient<EqRepository>();*/
 builder.Services.AddTransient<UsersRepository>();
 
+
+builder.Services.AddTransient<KeysRepository>();
+builder.Services.AddTransient<BrandRepository>();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
