@@ -1,0 +1,24 @@
+﻿@using KeysShop.Core
+@{
+}
+
+@model List<Key>
+
+    <h3>Наші ключики</h3>
+    <hr />
+@if (Model.Any())
+{
+
+    <ul>
+        @foreach (var key in Model)
+        {
+            <li>@key.Name</li>
+            <li>@key.Description</li>
+        }
+    </ul>
+
+}
+else
+{
+    <div class="alert alert-danger">Задачі відсутні</div>
+}

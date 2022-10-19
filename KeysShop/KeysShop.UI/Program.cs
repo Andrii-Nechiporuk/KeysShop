@@ -1,4 +1,5 @@
 using KeysShop.Core;
+using KeysShop.Repository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +14,11 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<KeysShopContext>();
 builder.Services.AddControllersWithViews();
+
+
+builder.Services.AddTransient<KeysRepository>();
+builder.Services.AddTransient<BrandRepository>();
+
 
 var app = builder.Build();
 
