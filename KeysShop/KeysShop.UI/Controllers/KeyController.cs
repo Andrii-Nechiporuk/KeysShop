@@ -82,5 +82,19 @@ namespace KeysShop.UI.Controllers
             ViewBag.Brands = brandsRepository.GetBrands();
             return View(model);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            return View(await keysRepository.GetKeyDto(id));
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> ConfirmDelete(int id)
+        {
+            await keysRepository.DeleteKeyAsync(id);
+            return RedirectToAction("Index");
+        }
     }
 }
