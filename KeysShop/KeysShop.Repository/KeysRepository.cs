@@ -1,9 +1,11 @@
 ﻿using KeysShop.Core;
+using KeysShop.Repository.Dto;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -58,6 +60,50 @@ namespace KeysShop.Repository
             key.Brand = updatedKey.Brand;
             key.feedbacks = updatedKey.feedbacks;
             await _ctx.SaveChangesAsync();
+        }
+
+        public async Task<KeyCreateDto> GetKeyDto(int id)
+        {
+            var k = await _ctx.Keys.FirstAsync(x => x.Id == id);
+
+            var keyDto = new KeyCreateDto
+            {
+                Id = k.Id,
+                Name = k.Name,
+                Description = k.Description,
+                Price = k.Price,
+                Sale = k.Sale,
+                Frequency = k.Frequency,
+                Count = k.Count,
+                ImgPath = k.ImgPath,
+                IsOriginal = k.IsOriginal,
+                IsKeyless = k.IsKeyless
+            };
+            return keyDto;
+        }
+
+        public async Task UpdateAsync(KeyCreateDto model, string brands)
+        {
+            var key = _ctx.Keys.Include(x=>x.Brand).FirstOrDefault(x=>x.Id==model.Id);
+            if (key.Name != model.Name)
+                key.Name = model.Name;
+            if (key.Description != model.Description)
+                key.Description = model.Description;
+            if (key.Sale != model.Sale)
+                key.Sale = model.Sale;
+            if (key.Frequency != model.Frequency)
+                key.Frequency = model.Frequency;
+            if (key.Count != model.Count)
+                key.Count = model.Count;
+            if (key.ImgPath != model.ImgPath)
+                key.ImgPath = model.ImgPath;
+            if (key.IsOriginal != model.IsOriginal)
+                key.IsOriginal = model.IsOriginal;
+            if (key.IsKeyless != model.IsKeyless)
+                key.IsKeyless = model.IsKeyless;
+            if (key.Brand.Name != brands)
+                key.Brand = _ctx.Brands.FirstOrDefault(x=>x.Name==brands);
+            _ctx.SaveChanges();
         }
     }
 }

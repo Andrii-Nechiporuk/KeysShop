@@ -2,6 +2,7 @@
 using KeysShop.Repository;
 using KeysShop.Repository.Dto;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace KeysShop.UI.Controllers
 {
@@ -22,26 +23,31 @@ namespace KeysShop.UI.Controllers
             var keys = keysRepository.GetKeys();
             return View(keys);
         }
+
+        [HttpGet]
         public IActionResult Create()
         {
+            ViewBag.Brands = brandsRepository.GetBrands();
             return View();
         }
 
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public async Task<IActionResult> Create(KeyCreateDto keyCreateDto)
+        public async Task<IActionResult> Create(KeyCreateDto keyCreateDto, string brands)
         {
+            ViewBag.Brands = brandsRepository.GetBrands();
             if (ModelState.IsValid)
             {
-                var brand = brandsRepository.GetBrandByName(keyCreateDto.Brand);
+                var brand = brandsRepository.GetBrandByName(brands);
                 if (brand == null)
                 {
-                    brand = new Brand() { Name = keyCreateDto.Name};
+                    brand = new Brand() { Name = brands };
                     brand = await brandsRepository.AddBrandAsync(brand);
                 }
 
                 var key = await keysRepository.AddKeyAsync(new Key()
                 {
+                    Name = keyCreateDto.Name,
                     Description = keyCreateDto.Description,
                     Price = keyCreateDto.Price,
                     Sale = keyCreateDto.Sale,
@@ -56,6 +62,25 @@ namespace KeysShop.UI.Controllers
                 return RedirectToAction("Edit", "Key", new { id = key.Id });
             }
             return View(keyCreateDto);
+        }
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            ViewBag.Brands = brandsRepository.GetBrands();
+            return View( await keysRepository.GetKeyDto(id));
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> Edit(KeyCreateDto model, string brands)
+        {
+            if (ModelState.IsValid)
+            {
+                await keysRepository.UpdateAsync(model, brands);
+                return RedirectToAction("Index");
+            }
+            ViewBag.Brands = brandsRepository.GetBrands();
+            return View(model);
         }
     }
 }

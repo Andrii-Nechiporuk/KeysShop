@@ -11,22 +11,22 @@
 </div>
 
 <br />
+
     <tbody>
         <div class="container row">
         @foreach (var item in Model)
         {
-                            <div class="col-md-4">
-                            <div class="card mb-4 box-shadow">
-                              <img class="card-img-top" src="@item.ImgPath" alt="@item.Name">
-                              <div class="card-body">
+                                <div class="col-3 d-flex flex-wrap" >
+                                    <div class="card shadow-sm" style="position:relative; padding-bottom:150px;">
+                                          <img class="card-img-top img-thumbnail"  src="@item.ImgPath" alt="@item.Name">
+                              <div class="card-body" style="position:absolute; bottom:0px;">
                                  <h5 class="card-title">@item.Name</h5>
                                  <p class="card-text">Бренд: @item.Brand.Name</p>
                                  <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-
                                         <a class="btn btn-sm btn-outline-secondary" asp-action="Edit" asp-route-id="@item.Id">Редагувати</a>
-                                            <a class="btn btn-sm btn-outline-secondary" asp-action="Details" asp-route-id="@item.Id">Деталі</a>
-                                            <a class="btn btn-sm btn-outline-secondary" asp-action="Delete" asp-route-id="@item.Id">Видалити</a>
+                                        <a class="btn btn-sm btn-outline-secondary" asp-action="Details" asp-route-id="@item.Id">Деталі</a>
+                                        <a class="btn btn-sm btn-outline-secondary" asp-action="Delete" asp-route-id="@item.Id">Видалити</a>
                                     </div>
                                  </div>
                               </div>

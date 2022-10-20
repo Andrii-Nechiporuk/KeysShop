@@ -1,15 +1,15 @@
 ﻿@using KeysShop.Core
 @model KeysShop.Repository.Dto.KeyCreateDto
 @{
-        var brands = ViewBag.Brands as IEnumerable<Brand>;
+    var brands = ViewBag.Brands as IEnumerable<Brand>;
 }
 <h4>Key</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
-            @Html.AntiForgeryToken()
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input asp-for="Id" type="hidden" />
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
@@ -20,22 +20,16 @@
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-
-@*            <div class="form-group">
-                <label asp-for="Brand" class="control-label"></label>
-                <input asp-for="Brand" class="form-control" />
-                <span asp-validation-for="Brand" class="text-danger"></span>
-            </div>*@
             <div class="mb-3">
                 <label asp-for="Brand" class="form-label"></label>
                 <select class="form-select" size="3" id="brands" name="brands">
                     @foreach (var b in brands)
                     {
-                        <option value="@b.Name">@b.Name</option>
+                        var selected = @Model.Brand == b.Name ? true : false;
+                        <!option value="@b.Name" @(selected ? "selected" : "")>@b.Name</!option>
                     }
                 </select>
             </div>
-
             <div class="form-group">
                 <label asp-for="Price" class="control-label"></label>
                 <input asp-for="Price" class="form-control" />
@@ -72,7 +66,7 @@
                 </label>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>

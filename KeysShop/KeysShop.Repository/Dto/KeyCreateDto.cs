@@ -11,6 +11,8 @@ namespace KeysShop.Repository.Dto
 {
     public class KeyCreateDto
     {
+        public int? Id { get;set; }
+
         public string? Name { get; set; }
 
         public string? Description { get; set; }
@@ -29,6 +31,6 @@ namespace KeysShop.Repository.Dto
 
         public bool IsKeyless { get; set; }
 
-        public string Brand { get; set; }
+        public string? Brand { get; set; }
     }
 }
