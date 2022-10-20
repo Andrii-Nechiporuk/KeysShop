@@ -1,24 +1,37 @@
-﻿@using KeysShop.Core
+﻿@model IEnumerable<KeysShop.Core.Key>
+
 @{
+    ViewData["Title"] = "Каталог товарів";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@model List<Key>
+<h1>@ViewData["Title"]</h1>
+<div class="">
+    <a class="btn btn-success" asp-action="Create">Додати товар</a>
+</div>
 
-    <h3>Наші ключики</h3>
-    <hr />
-@if (Model.Any())
-{
-
-    <ul>
-        @foreach (var key in Model)
+<br />
+    <tbody>
+        <div class="container row">
+        @foreach (var item in Model)
         {
-            <li>@key.Name</li>
-            <li>@key.Description</li>
-        }
-    </ul>
+                            <div class="col-md-4">
+                            <div class="card mb-4 box-shadow">
+                              <img class="card-img-top" src="@item.ImgPath" alt="@item.Name">
+                              <div class="card-body">
+                                 <h5 class="card-title">@item.Name</h5>
+                                 <p class="card-text">Бренд: @item.Brand.Name</p>
+                                 <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
 
-}
-else
-{
-    <div class="alert alert-danger">Задачі відсутні</div>
-}
+                                        <a class="btn btn-sm btn-outline-secondary" asp-action="Edit" asp-route-id="@item.Id">Редагувати</a>
+                                            <a class="btn btn-sm btn-outline-secondary" asp-action="Details" asp-route-id="@item.Id">Деталі</a>
+                                            <a class="btn btn-sm btn-outline-secondary" asp-action="Delete" asp-route-id="@item.Id">Видалити</a>
+                                    </div>
+                                 </div>
+                              </div>
+                            </div>
+                            </div>
+        }
+        </div>
+    </tbody>

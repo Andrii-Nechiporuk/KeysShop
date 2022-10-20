@@ -30,12 +30,8 @@ builder.Services.AddControllers().AddJsonOptions(x =>
                 x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 builder.Services.AddControllersWithViews();
-/*builder.Services.AddTransient<UpdateRepository>();
-builder.Services.AddTransient<LossesRepository>();
-builder.Services.AddTransient<EqRepository>();*/
+
 builder.Services.AddTransient<UsersRepository>();
-
-
 builder.Services.AddTransient<KeysRepository>();
 builder.Services.AddTransient<BrandRepository>();
 

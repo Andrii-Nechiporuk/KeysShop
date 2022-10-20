@@ -17,15 +17,20 @@ namespace KeysShop.Repository
             this._ctx = _ctx;
         }
 
-        public async Task AddBrandAsync(Brand brand)
+        public async Task<Brand> AddBrandAsync(Brand brand)
         {
             _ctx.Brands.Add(brand);
             await _ctx.SaveChangesAsync();
+            return _ctx.Brands.FirstOrDefault(x => x.Name == brand.Name);
         }
 
         public Brand GetBrand(int id)
         {
             return _ctx.Brands.FirstOrDefault(x => x.Id == id);
+        }
+        public Brand GetBrandByName(string name)
+        {
+            return _ctx.Brands.FirstOrDefault(x => x.Name == name);
         }
 
         public List<Brand> GetBrands()

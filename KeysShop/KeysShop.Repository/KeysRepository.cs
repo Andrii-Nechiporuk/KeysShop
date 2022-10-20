@@ -18,10 +18,11 @@ namespace KeysShop.Repository
             this._ctx = _ctx;
         }
 
-        public async Task AddKeyAsync(Key key)
+        public async Task<Key> AddKeyAsync(Key key)
         {
             _ctx.Keys.Add(key);
             await _ctx.SaveChangesAsync();
+            return _ctx.Keys.Include(x => x.Brand).FirstOrDefault(x => x.Name == key.Name);
         }
 
         public Key GetKey(int id)
@@ -32,7 +33,7 @@ namespace KeysShop.Repository
 
         public List<Key> GetKeys()
         {
-            var keyList = _ctx.Keys.ToList();
+            var keyList = _ctx.Keys.Include(x => x.Brand).ToList();
             return keyList;
         }
 
