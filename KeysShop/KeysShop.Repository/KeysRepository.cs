@@ -62,7 +62,7 @@ namespace KeysShop.Repository
 
         public async Task<KeyCreateDto> GetKeyDto(int id)
         {
-            var k = await _ctx.Keys.FirstAsync(x => x.Id == id);
+            var k = await _ctx.Keys.Include(x=>x.Brand).FirstAsync(x => x.Id == id);
 
             var keyDto = new KeyCreateDto
             {
@@ -75,7 +75,8 @@ namespace KeysShop.Repository
                 Count = k.Count,
                 ImgPath = k.ImgPath,
                 IsOriginal = k.IsOriginal,
-                IsKeyless = k.IsKeyless
+                IsKeyless = k.IsKeyless,
+                Brand = k.Brand.Name
             };
             return keyDto;
         }
