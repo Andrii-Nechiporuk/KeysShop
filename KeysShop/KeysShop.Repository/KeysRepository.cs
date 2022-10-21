@@ -14,7 +14,6 @@ namespace KeysShop.Repository
     public class KeysRepository
     {
         private readonly KeysShopContext _ctx;
-
         public KeysRepository(KeysShopContext _ctx)
         {
             this._ctx = _ctx;
@@ -30,7 +29,6 @@ namespace KeysShop.Repository
         public Key GetKey(int id)
         {
             return _ctx.Keys.Include(x=>x.Brand).Include(x=>x.feedbacks).FirstOrDefault(x => x.Id == id);
-
         }
 
         public List<Key> GetKeys()

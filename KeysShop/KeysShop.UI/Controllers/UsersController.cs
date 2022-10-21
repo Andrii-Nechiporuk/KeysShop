@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace KeysShop.UI.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class UsersController : Controller
     {
         private readonly UsersRepository usersRepository;
