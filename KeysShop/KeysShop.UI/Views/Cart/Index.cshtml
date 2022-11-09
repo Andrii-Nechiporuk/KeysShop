@@ -1,0 +1,55 @@
+﻿@{
+    Layout = null;
+}
+
+@using KeysShop.Repository;
+@using KeysShop.Core;
+@inject IHttpContextAccessor Accessor
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cart</title>
+</head>
+<body>
+
+    <h3>Cart Page</h3>
+    <table cellpadding="2" cellspacing="2" border="1">
+        <tr>
+            <th>Option</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Sub Total</th>
+        </tr>
+        @foreach (CartItem item in Accessor.HttpContext.Session.GetObject<List<CartItem>>("cart"))
+        {
+                <tr>
+                    <td><a href="@Url.Action("Remove", "Cart", new { id = item.Key.Id })">Remove</a></td>
+                    <td>@item.Key.Id</td>
+                    <td>@item.Key.Name</td>
+@*                    <td><img src="~/Content/Images/@item.Product.Photo" width="60" /> </td>*@
+                    <td>@item.Key.Price</td>
+                    <td>@item.Quantity</td>
+                    <td>@(item.Key.Price * item.Quantity)</td>
+                </tr>
+        }
+        <tr>
+            <td align="right" colspan="6">Sum</td>
+            <td>
+                @{
+                    List<CartItem> cart = Accessor.HttpContext.Session.GetObject<List<CartItem>>("cart");
+                    var total = cart.Sum(item => item.Key.Price * item.Quantity);
+                }
+                @total
+            </td>
+        </tr>
+    </table>
+    <br>
+    <a href="@Url.Action("Index", "Key")">Continue Shopping</a>
+
+</body>
+</html>

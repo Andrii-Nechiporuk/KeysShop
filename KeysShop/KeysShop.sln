@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeysShop.Core", "KeysShop.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeysShop.Repository", "KeysShop.Repository\KeysShop.Repository.csproj", "{1A57C8EF-AF72-490D-8CCC-8C191E637D36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeysShop.UI", "KeysShop.UI\KeysShop.UI.csproj", "{44E76559-84C9-4E49-8E53-FEE7F1F5B830}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeysShop.UI", "KeysShop.UI\KeysShop.UI.csproj", "{44E76559-84C9-4E49-8E53-FEE7F1F5B830}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

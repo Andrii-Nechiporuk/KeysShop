@@ -8,13 +8,10 @@ using System.Threading.Tasks;
 
 namespace KeysShop.Core
 {
-    public class BucketItem
+    public class CartItem
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public User? User { get; set; }
-        public Key? Key { get; set; }
-        public int Count { get; set; }
+        public int Quantity { get; set; }
+
+        public  Key Key { get; set; }
     }
 }
