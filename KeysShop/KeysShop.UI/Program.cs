@@ -3,7 +3,6 @@ using KeysShop.Repository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
-using Newtonsoft.Json;
 using KeysShop.Core;
 using KeysShop.Repository;
 
