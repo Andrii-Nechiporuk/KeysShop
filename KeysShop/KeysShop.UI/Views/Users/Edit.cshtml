@@ -4,8 +4,11 @@
 @model UserReadDto
 
 @{
-    var roles = ViewBag.Roles as IEnumerable<IdentityRole>;
+    var roles = ViewBag.Roles as IEnumerable<IdentityRole>;  
+    Layout = "~/Views/Shared/_BreezeLayout.cshtml";
 }
+<div class="content-wrapper pb-0 text-center">
+
 
 <div class="float-end">
     <a href="/user/index" class="btn btn-outline-dark">Повернутися до списку</a>
@@ -70,4 +73,4 @@
             $(".form-select").select2();
         });
     </script>
- }
+ }</div>
