@@ -1,5 +1,9 @@
 ﻿@model KeysShop.Core.Brand
-
+@{
+   
+    Layout = "~/Views/Shared/_BreezeLayout.cshtml";
+}
+<div class="content-wrapper pb-0 text-center">
 <h4>Brand</h4>
 <hr />
 <div class="row">
@@ -31,3 +35,4 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+</div>

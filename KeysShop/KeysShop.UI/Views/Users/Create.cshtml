@@ -1,7 +1,11 @@
 ﻿@using KeysShop.Repository.Dto
 
 @model UserCreateDto
+@{
 
+    Layout = "~/Views/Shared/_BreezeLayout.cshtml";
+}
+<div class="content-wrapper pb-0 text-center">
 <div class="float-end">
     <a href="/users/index" class="btn btn-outline-dark">Повернутися до списку</a>
 </div>
@@ -42,4 +46,4 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-    }
+    }</div>

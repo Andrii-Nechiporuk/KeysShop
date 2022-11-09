@@ -2,7 +2,10 @@
 @model IEnumerable<UserReadDto>
 
 @{
+
+    Layout = "~/Views/Shared/_BreezeLayout.cshtml";
 }
+<div class="content-wrapper pb-0 text-center">
 
 <div class="float-end">
     <a href="/users/create" class="btn btn-outline-primary">Додати користувача</a>
@@ -39,4 +42,4 @@
             </tr>
         }
     </tbody>
-</table>
+</table></div>

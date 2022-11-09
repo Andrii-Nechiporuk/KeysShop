@@ -2,10 +2,12 @@
 @model KeysShop.Repository.Dto.KeyCreateDto
 @{
     var brands = ViewBag.Brands as IEnumerable<Brand>;
+    Layout = "~/Views/Shared/_BreezeLayout.cshtml";
 }
+<div class="content-wrapper pb-0 text-center">
 <h4>Key</h4>
 <hr />
-<div class="row">
+@*<div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             @Html.AntiForgeryToken()
@@ -23,14 +25,15 @@
             </div>
             <div class="mb-3">
                 <label asp-for="Brand" class="form-label"></label>
-                <select class="form-select" size="3" id="brands" name="brands">
+                <select class="form-select form-control form-control-lg" id="brands" name="brands">
                     @foreach (var b in brands)
                     {
-                        var selected = @Model.Brand == b.Name ? true : false;
+                            var selected = @Model.Brand == b.Name ? true : false;
                             <!option value="@b.Name" @(selected ? "selected" : "")>@b.Name</!option>
                     }
                 </select>
-            </div>
+            </div>  
+       
             <div class="form-group">
                 <label asp-for="Price" class="control-label"></label>
                 <input asp-for="Price" class="form-control" />
@@ -76,14 +79,174 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-
+</div>
 @section Scripts {
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
         <script>
-            $(function() {
+            $(function () {
                 $(".form-select").select2();
             });
         </script>
-}
+} *@
+
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Horizontal Two column</h4>
+                <div class="form-sample">
+                    <p class="card-description">Personal info</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">                             
+                                <label class="col-sm-3 col-form-label" for="Name">Name</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" data-val="true" data-val-required="The Name field is required." id="Name" name="Name" value="BMW">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">                              
+                                <label class="col-sm-3 col-form-label" for="Description">Description</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" id="Description" name="Description" value="new key">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="Description" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <div class="mb-3">
+                                    <label class="form-label" </label>
+                                   </div>
+                                <label class="col-sm-3 col-form-label"for="Brand">Brand</label>
+                                <div class="col-sm-9">
+                                    <select class="form-select form-control form-control-lg select2-hidden-accessible" id="brands" name="brands" data-select2-id="select2-data-brands" tabindex="-1" aria-hidden="true">
+                                        <option value="Mercedes">Mercedes</option>
+                                        <option value="BMW" selected="" data-select2-id="select2-data-2-xbn7">BMW</option>
+                                        <option value="VW">VW</option>
+                                        <option value="Toyota">Toyota</option>
+                                    </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="select2-data-1-lpe3" style="width: 503.656px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-brands-container" aria-controls="select2-brands-container"><span class="select2-selection__rendered" id="select2-brands-container" role="textbox" aria-readonly="true" title="BMW">BMW</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <div class="form-group">
+                                    <label class="control-label" </label>
+                                   
+                                </div>
+                                <label class="col-sm-3 col-form-label" for="Price">Price</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" data-val="true" data-val-number="The field Price must be a number." id="Price" name="Price" value="250">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="Price" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <div class="form-group">
+                                    <label class="control-label" </label>
+                                    
+                                </div>
+                                <label class="col-sm-3 col-form-label" for="Sale">Sale</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" data-val="true" data-val-number="The field Sale must be a number." id="Sale" name="Sale" value="1">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="Sale" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">                               
+                                <label class="col-sm-3 col-form-label" for="Frequency">Frequency</label>
+                                <div class="col-sm-4">                                  
+                                        <input class="form-control" type="number" id="Frequency" name="Frequency" value="433">
+                                        <span class="text-danger field-validation-valid" data-valmsg-for="Frequency" data-valmsg-replace="true"></span>                                  
+                                </div>                               
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="row">
+                        <div class="col-md-6">                           
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label" for="Count">Count</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" id="Count" name="Count" value="7">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="Count" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <div class="form-group">                                  
+                                   
+                                </div>
+                                <label class="col-sm-3 col-form-label" for="ImgPath">ImgPath</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" id="ImgPath" name="ImgPath" value="https://a.allegroimg.com/original/11f299/3a6a338643d8bde4755858fedec5/BMW-5-7-F15-F01-X5-X6-KLUCZYK-PILOT-434-MHz">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="ImgPath" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <div class="form-group form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" checked="checked" data-val="true" data-val-required="The IsOriginal field is required." id="IsOriginal" name="IsOriginal" value="true"> IsOriginal
+                                        <i class="input-helper"></i>
+                                    </label>
+                                </div>                                
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <div class="form-group form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" data-val="true" data-val-required="The IsKeyless field is required." id="IsKeyless" name="IsKeyless" value="true"> IsKeyless
+                                        <i class="input-helper"></i>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                                               
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <div class="form-group">
+                                    <input type="submit" value="Save" class="btn btn-primary">
+                                </div>                             
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--сторого залишити-->
+                </div>
+            </div>
+        </div>
+    </div>
+@section Scripts {
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $(function () {
+            $(".form-select").select2();
+        });
+    </script>
+}  
